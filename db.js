@@ -1,11 +1,12 @@
 import mongoose from "mongoose"
 
-const URI = `mongodb+srv://habundes:admsr000@cluster0.1zahxid.mongodb.net/midudev?retryWrites=true&w=majority`
+const { MONGO_DB_URI } = process.env
 
-mongoose.connect(URI)
-    .then(() => {
-        console.log('🚀 connected successfully to mongo db');
-    })
-    .catch((e) => {
-        console.error(e)
-    })
+mongoose.connect(MONGO_DB_URI)
+  .then(() => {
+    console.log('🚀 connected successfully to mongo db');
+  })
+  .catch((e) => {
+    console.error(e)
+    console.log(MONGO_DB_URI);
+  })
